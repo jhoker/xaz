@@ -298,7 +298,7 @@ asu=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/vmess",
+      "path": "/worryfree",
       "type": "none",
       "host": "",
       "tls": "tls"
@@ -313,7 +313,7 @@ ask=`cat<<EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/vmess",
+      "path": "/worryfree",
       "type": "none",
       "host": "",
       "tls": "none"

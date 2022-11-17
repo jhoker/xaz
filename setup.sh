@@ -76,14 +76,7 @@ dart=$(cat /etc/hosts | grep -w `hostname` | awk '{print $2}')
 if [[ "$hst" != "$dart" ]]; then
 echo "$localip $(hostname)" >> /etc/hosts
 fi
-
 mkdir -p /etc/xray
-mkdir -p /etc/v2ray
-touch /etc/xray/domain
-touch /etc/v2ray/domain
-touch /etc/xray/scdomain
-touch /etc/v2ray/scdomain
-
 
 echo -e "[ ${tyblue}NOTES${NC} ] Before we go.. "
 sleep 1
@@ -107,14 +100,21 @@ if [ "" = "$PKG_OK" ]; then
   sleep 1
   echo ""
   sleep 1
-  echo -e "[ ${tyblue}NOTES${NC} ] TURU"
+  echo -e "[ ${tyblue}NOTES${NC} ] 1. apt update -y"
+  sleep 1
+  echo -e "[ ${tyblue}NOTES${NC} ] 2. apt upgrade -y"
+  sleep 1
+  echo -e "[ ${tyblue}NOTES${NC} ] 3. apt dist-upgrade -y"
+  sleep 1
+  echo -e "[ ${tyblue}NOTES${NC} ] 4. reboot"
   sleep 1
   echo ""
   sleep 1
-  echo -e "[ ${tyblue}NOTES${NC} ] After Turu"
+  echo -e "[ ${tyblue}NOTES${NC} ] After rebooting"
   sleep 1
   echo -e "[ ${tyblue}NOTES${NC} ] Then run this script again"
-  echo -e "[ ${tyblue}NOTES${NC} ] enter now"
+  echo -e "[ ${tyblue}NOTES${NC} ] Notes, Script By : YasaNata"
+  echo -e "[ ${tyblue}NOTES${NC} ] if you understand then tap enter now.."
   read
 else
   echo -e "[ ${green}INFO${NC} ] Oke installed"
@@ -141,11 +141,13 @@ sysctl -w net.ipv6.conf.default.disable_ipv6=1 >/dev/null 2>&1
 coreselect=''
 cat> /root/.profile << END
 # ~/.profile: executed by Bourne-compatible login shells.
+
 if [ "$BASH" ]; then
   if [ -f ~/.bashrc ]; then
     . ~/.bashrc
   fi
 fi
+
 mesg n || true
 clear
 END
@@ -153,8 +155,7 @@ chmod 644 /root/.profile
 
 echo -e "[ ${green}INFO${NC} ] Preparing the install file"
 apt install git curl -y >/dev/null 2>&1
-apt install python -y >/dev/null 2>&1
-echo -e "[ ${green}INFO${NC} ] Aight good ... installation file is ready"
+echo -e "[ ${green}INFO${NC} ] Allright good ... installation file is ready"
 sleep 2
 echo -ne "[ ${green}INFO${NC} ] Check permission : "
 
@@ -198,7 +199,7 @@ clear
 
 yellow "Add Domain for vmess/vless/trojan dll"
 echo "-------------------------------------"
-echo "     Scipt By BagoesVpn "
+echo "     Scipt By YasaNata "
 echo "-------------------------------------"
 read -rp "Input your domain : " -e pp
 echo "$pp" > /root/domain
@@ -263,7 +264,7 @@ wget https://raw.githubusercontent.com/sibeesans/multi-ws/main/slowdnss/install-
 clear
 echo -e "$green[INFO]$NC Download Extra Menu"
 sleep 2
-wget https://raw.githubusercontent.com/sibeesans/multi-ws/main/update/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/yasanata/multi-ws/main/update/update.sh && chmod +x update.sh && ./update.sh
 clear
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 clear
@@ -305,7 +306,7 @@ fi
 curl -sS ifconfig.me > /etc/myipvps
 
 echo " "
-echo "=====================-[ BagoesVpn Premium ]-===================="
+echo "=====================-[ YasaNata Premium ]-===================="
 echo ""
 echo "------------------------------------------------------------"
 echo ""
@@ -350,7 +351,7 @@ echo ""
 echo ""
 echo "------------------------------------------------------------"
 echo ""
-echo "===============-[ Script Created By BagoesVpn  ]-==============="
+echo "===============-[ Script Created By YasaNata  ]-==============="
 echo -e ""
 echo ""
 echo "" | tee -a log-install.txt

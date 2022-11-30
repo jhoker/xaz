@@ -1,7 +1,3 @@
-
-fi
-
-
 function cektrojan(){
 clear
 echo -n > /tmp/other.txt

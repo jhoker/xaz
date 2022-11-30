@@ -1,5 +1,3 @@
-fi
-
 function delvmess(){
     clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")

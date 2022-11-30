@@ -94,7 +94,7 @@ echo -e "$COLOR1│${NC}  • Email : $EMAILGIT"
 echo -e "$COLOR1│${NC}  • User  : $USERGIT"
 echo -e "$COLOR1│${NC}  • API   : $APIGIT"
 echo -e "$COLOR1│${NC}  • All U need Is Create a new repository "
-echo -e "$COLOR1│${NC}    & Nammed : permission "
+echo -e "$COLOR1│${NC}    & Nammed : zambul "
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.YASANATA.NINJA •            $COLOR1│$NC"
@@ -110,12 +110,12 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-rm -rf /root/permission
+rm -rf /root/zambul
 read -p "│  NEW IPVPS : " daftar
 echo -e "$COLOR1│${NC}"
 echo -e "$COLOR1│${NC}  [INFO] Checking the IPVPS!"
 sleep 1
-REQIP=$(curl -sS https://raw.githubusercontent.com/${USERGIT}/permission/main/ipmini | awk '{print $4}' | grep $daftar)
+REQIP=$(curl -sS https://raw.githubusercontent.com/${USERGIT}/zambul/main/ipmini | awk '{print $4}' | grep $daftar)
 if [[ $daftar = $REQIP ]]; then
 echo -e "$COLOR1│${NC}  [INFO] VPS IP Already Registered!!"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
@@ -184,8 +184,8 @@ exp=$(date -d "$exp days" +"%Y-%m-%d")
 hariini=$(date -d "0 days" +"%Y-%m-%d")
 git config --global user.email "${EMAILGIT}" &> /dev/null
 git config --global user.name "${USERGIT}" &> /dev/null
-git clone https://github.com/${USERGIT}/permission.git &> /dev/null
-cd /root/permission/ &> /dev/null
+git clone https://github.com/${USERGIT}/zambul.git &> /dev/null
+cd /root/zambul/ &> /dev/null
 rm -rf .git &> /dev/null
 git init &> /dev/null
 touch ipmini &> /dev/null
@@ -197,13 +197,13 @@ Exp         : $exp
 IPVPS       : $daftar 
 Reg Date    : $hariini
 " 
-echo "${TEXT}" >>/root/permission/newuser 
-echo "### $client $exp $daftar $isadmin" >>/root/permission/ipmini 
+echo "${TEXT}" >>/root/zambul/newuser 
+echo "### $client $exp $daftar $isadmin" >>/root/zambul/ipmini 
 git add .
 git commit -m register &> /dev/null
 git branch -M main &> /dev/null
-git remote add origin https://github.com/${USERGIT}/permission.git &> /dev/null
-git push -f https://${APIGIT}@github.com/${USERGIT}/permission.git &> /dev/null
+git remote add origin https://github.com/${USERGIT}/zambul.git &> /dev/null
+git push -f https://${APIGIT}@github.com/${USERGIT}/zambul.git &> /dev/null
 sleep 1
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -218,7 +218,7 @@ echo -e "$COLOR1│${NC}  IP VPS        : $daftar"
 echo -e "$COLOR1│${NC}  Register Date : $hariini"
 echo -e "$COLOR1│${NC}  Expired Date  : $exp"
 cd
-rm -rf /root/permission
+rm -rf /root/zambul
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.YASANATA.NINJA •            $COLOR1│$NC"
@@ -229,11 +229,11 @@ menu-ip
 }
 function delipvps(){
 clear
-rm -rf /root/permission &> /dev/null
+rm -rf /root/zambul &> /dev/null
 git config --global user.email "${EMAILGIT}" &> /dev/null
 git config --global user.name "${USERGIT}" &> /dev/null
-git clone https://github.com/${USERGIT}/permission.git &> /dev/null
-cd /root/permission/ &> /dev/null
+git clone https://github.com/${USERGIT}/zambul.git &> /dev/null
+cd /root/zambul/ &> /dev/null
 rm -rf .git &> /dev/null
 git init &> /dev/null
 touch ipmini &> /dev/null
@@ -242,7 +242,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC} ${COLBG1}                 • DELETE IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2-4 | nl -s '. '
+grep -E "^### " "/root/zambul/ipmini" | cut -d ' ' -f 2-4 | nl -s '. '
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.YASANATA.NINJA •            $COLOR1│$NC"
@@ -265,23 +265,23 @@ read -n 1 -s -r -p "   Press any key to back on menu"
 menu-ip
 fi
 
-name1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | sed -n "$nombor"p) #name
-exp=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 3 | sed -n "$nombor"p) #exp
-ivps1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 4 | sed -n "$nombor"p) #ip
-sed -i "s/### $name1 $exp $ivps1//g" /root/permission/ipmini &> /dev/null
+name1=$(grep -E "^### " "/root/zambul/ipmini" | cut -d ' ' -f 2 | sed -n "$nombor"p) #name
+exp=$(grep -E "^### " "/root/zambul/ipmini" | cut -d ' ' -f 3 | sed -n "$nombor"p) #exp
+ivps1=$(grep -E "^### " "/root/zambul/ipmini" | cut -d ' ' -f 4 | sed -n "$nombor"p) #ip
+sed -i "s/### $name1 $exp $ivps1//g" /root/zambul/ipmini &> /dev/null
 hariini2=$(date -d "0 days" +"%Y-%m-%d")
 TEXTD="
 Name     : $name1
 IPVPS    : $ivps1  
 Status   : Deleted on  $hariini2
 " 
-echo "${TEXTD}" >>/root/permission/delete_log  &> /dev/null
+echo "${TEXTD}" >>/root/zambul/delete_log  &> /dev/null
 
 git add . &> /dev/null
 git commit -m remove &> /dev/null
 git branch -M main &> /dev/null
-git remote add origin https://github.com/${USERGIT}/permission.git &> /dev/null
-git push -f https://${APIGIT}@github.com/${USERGIT}/permission.git &> /dev/null
+git remote add origin https://github.com/${USERGIT}/zambul.git &> /dev/null
+git push -f https://${APIGIT}@github.com/${USERGIT}/zambul.git &> /dev/null
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
@@ -293,7 +293,7 @@ echo -e "$COLOR1│${NC}  Ip VPS       : $ivps1"
 echo -e "$COLOR1│${NC}  Expired Date : $exp"
 echo -e "$COLOR1│${NC}  Client Name  : $name1"
 cd
-rm -rf /root/permission
+rm -rf /root/zambul
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.YASANATA.NINJA •            $COLOR1│$NC"
@@ -309,17 +309,17 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-rm -rf /root/permission
+rm -rf /root/zambul
 git config --global user.email "${EMAILGIT}" &> /dev/null
 git config --global user.name "${USERGIT}" &> /dev/null
-git clone https://github.com/${USERGIT}/permission.git
-cd /root/permission/
+git clone https://github.com/${USERGIT}/zambul.git
+cd /root/zambul/
 rm -rf .git
 git init
 touch ipmini
 echo -e "   [ ${Lyellow}INFO${NC} ] Checking list.."
 
-NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/root/permission/ipmini")
+NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/root/zambul/ipmini")
 if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
   clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
@@ -340,7 +340,7 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2-4 | nl -s '. '
+grep -E "^### " "/root/zambul/ipmini" | cut -d ' ' -f 2-4 | nl -s '. '
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.YASANATA.NINJA •            $COLOR1│$NC"
@@ -387,9 +387,9 @@ echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menu-ip
 fi
-name1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p) #name
-exp=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p) #exp
-ivps1=$(grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p) #ip
+name1=$(grep -E "^### " "/root/zambul/ipmini" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p) #name
+exp=$(grep -E "^### " "/root/zambul/ipmini" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p) #exp
+ivps1=$(grep -E "^### " "/root/zambul/ipmini" | cut -d ' ' -f 4 | sed -n "${CLIENT_NUMBER}"p) #ip
 
 now=$(date +%Y-%m-%d)
 d1=$(date -d "$exp" +%s)
@@ -397,12 +397,12 @@ d2=$(date -d "$now" +%s)
 exp2=$(((d1 - d2) / 86400))
 exp3=$(($exp2 + $masaaktif))
 exp4=$(date -d "$exp3 days" +"%Y-%m-%d")
-sed -i "s/### $name1 $exp $ivps1/### $name1 $exp4 $ivps1/g" /root/permission/ipmini
+sed -i "s/### $name1 $exp $ivps1/### $name1 $exp4 $ivps1/g" /root/zambul/ipmini
 git add .
 git commit -m renew
 git branch -M main
-git remote add origin https://github.com/${USERGIT}/permission.git
-git push -f https://${APIGIT}@github.com/${USERGIT}/permission.git
+git remote add origin https://github.com/${USERGIT}/zambul.git
+git push -f https://${APIGIT}@github.com/${USERGIT}/zambul.git
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
@@ -416,7 +416,7 @@ echo -e "$COLOR1│${NC}  Days Added    : $masaaktif Days"
 echo -e "$COLOR1│${NC}  Expired Date  : $exp4"
 echo -e "$COLOR1│${NC}  Client Name   : $name1"
 cd
-rm -rf /root/permission
+rm -rf /root/zambul
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.YASANATA.NINJA •            $COLOR1│$NC"
@@ -428,11 +428,11 @@ menu-ip
 
 function useripvps(){
 clear
-rm -rf /root/permission
+rm -rf /root/zambul
 git config --global user.email "${EMAILGIT}"
 git config --global user.name "${USERGIT}"
-git clone https://github.com/${USERGIT}/permission.git
-cd /root/permission/
+git clone https://github.com/${USERGIT}/zambul.git
+cd /root/zambul/
 rm -rf .git
 git init
 touch ipmini
@@ -441,13 +441,13 @@ echo -e "$COLOR1┌────────────────────�
 echo -e "$COLOR1│${NC} ${COLBG1}               • REGISTER IPVPS •              ${NC} $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}"
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"
-grep -E "^### " "/root/permission/ipmini" | cut -d ' ' -f 2 | nl -s '. '
+grep -E "^### " "/root/zambul/ipmini" | cut -d ' ' -f 2 | nl -s '. '
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 echo -e "$COLOR1┌────────────────────── BY ───────────────────────┐${NC}"
 echo -e "$COLOR1│${NC}              • WWW.YASANATA.NINJA •            $COLOR1│$NC"
 echo -e "$COLOR1└─────────────────────────────────────────────────┘${NC}" 
 cd
-rm -rf /root/permission
+rm -rf /root/zambul
 echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menu-ip
@@ -472,7 +472,7 @@ echo -e ""
 read -n 1 -s -r -p "   Press any key to back on menu"
 menu-ip  
 }
-Isadmin=$(curl -sS https://raw.githubusercontent.com/yasanata/permission/main/ipmini | grep $MYIP | awk '{print $5}')
+Isadmin=$(curl -sS https://raw.githubusercontent.com/jhoker/zambul/main/ipmini | grep $MYIP | awk '{print $5}')
 if [ "$Isadmin" = "OFF" ]; then
 clear
 echo -e "$COLOR1┌─────────────────────────────────────────────────┐${NC}"

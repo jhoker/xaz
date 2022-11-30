@@ -9,10 +9,10 @@ rm nsdomain
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c5)
 subsl=$(</dev/urandom tr -dc a-x0-9 | head -c5)
 DOMAIN=sedang.my.id
-SUB_DOMAIN=vpn-${sub}.sedang.my.id
-NS_DOMAIN=ns-${subsl}.sedang.my.id
-CF_ID=sshsedang@gmail.com
-CF_KEY=eaeddbd9e3cf97d4b889bd7fbae56b60bba63
+SUB_DOMAIN=vpn-${sub}.topi-hitam.my.id
+NS_DOMAIN=ns-${subsl}.topi-hitam.my.id
+CF_ID=ipulenams@gmail.com
+CF_KEY=7287dacd40e0192eeff502d75178d8a40988d
 
 
 set -euo pipefail

@@ -1,4 +1,3 @@
-fi
 function cekvless(){
 clear
 echo -n > /tmp/other.txt

@@ -140,7 +140,7 @@ fi
 fi
 
 echo ""
-wget -q https://raw.githubusercontent.com/sibeesans/multi-ws/main/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
+wget -q https://raw.githubusercontent.com/jhoker/xaz/main/dependencies.sh;chmod +x dependencies.sh;./dependencies.sh
 rm dependencies.sh
 clear
 
@@ -194,24 +194,24 @@ EOF
 echo -e "$green[INFO]$NC Install SSH"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/sibeesans/multi-ws/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/jhoker/xaz/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 #Instal Xray
 echo -e "$green[INFO]$NC Install Install XRAY!"
 sleep 2
 clear
-wget https://raw.githubusercontent.com/sibeesans/multi-ws/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+wget https://raw.githubusercontent.com/jhoker/xaz/main/xray/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 clear
-wget https://raw.githubusercontent.com/sibeesans/multi-ws/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/jhoker/xaz/main/backup/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 clear
-wget https://raw.githubusercontent.com/sibeesans/multi-ws/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
+wget https://raw.githubusercontent.com/jhoker/xaz/main/websocket/insshws.sh && chmod +x insshws.sh && ./insshws.sh
 clear
-wget https://raw.githubusercontent.com/sibeesans/multi-ws/main/websocket/nontls.sh && chmod +x nontls.sh && ./nontls.sh
+wget https://raw.githubusercontent.com/jhoker/xaz/main/websocket/nontls.sh && chmod +x nontls.sh && ./nontls.sh
 clear
 wget https://raw.githubusercontent.com/yasanata/multi-ws/main/slowdnss/install-sldns.sh && chmod +x install-sldns.sh && ./install-sldns.sh
 clear
 echo -e "$green[INFO]$NC Download Extra Menu"
 sleep 2
-wget https://raw.githubusercontent.com/sibeesans/multi-ws/main/update/update.sh && chmod +x update.sh && ./update.sh
+wget https://raw.githubusercontent.com/jhoker/xaz/main/update/update.sh && chmod +x update.sh && ./update.sh
 clear
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 clear
@@ -240,7 +240,7 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 echo "Log All Account " > /etc/log-create-user.log
 fi
 history -c
-serverV=$( curl -sS https://raw.githubusercontent.com/sibeesans/multi-ws/main/version  )
+serverV=$( curl -sS https://raw.githubusercontent.com/jhoker/xaz/main/version  )
 echo $serverV > /opt/.ver
 aureb=$(cat /home/re_otm)
 b=11

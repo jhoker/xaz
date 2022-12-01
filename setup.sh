@@ -110,16 +110,6 @@ echo -e "[ ${green}INFO${NC} ] Allright good ... installation file is ready"
 sleep 2
 echo -ne "[ ${green}INFO${NC} ] Check permission : "
 
-if [ -f /home/needupdate ]; then
-red "Your script need to update first !"
-exit 0
-elif [ "$res" = "Permission Accepted..." ]; then
-green "Permission Accepted!"
-else
-exit 0
-fi
-sleep 3
-
 mkdir -p /etc/ssnvpn
 mkdir -p /etc/ssnvpn/theme
 mkdir -p /var/lib/ssnvpn-pro >/dev/null 2>&1
